@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: VisibleMask
+    uniqueID: 828075813
+    locked: 0

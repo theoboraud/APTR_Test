@@ -27,18 +27,23 @@ public class PopUpEntry : MonoBehaviour
 
     public void Validate()
     {
-        // Set file name to input text value
-        fileName = InputText.text;
+        // If the input field is not empty
+        if (InputText.text != "")
+        {
+            // Set file name to input text value
+            fileName = InputText.text;
 
-        // If it is an image, then create an EntryImage object
-        if (isEntryImage)
-        {
-            MainManager.Instance.CreateEntryImage();
-        }
-        // Otherwise, create an Entry3D object
-        else
-        {
-            MainManager.Instance.CreateEntry3D();
+            // If it is an image, then create an EntryImage object
+            if (isEntryImage)
+            {
+                MainManager.Instance.CreateEntryImage();
+            }
+            // Otherwise, create an Entry3D object
+            else
+            {
+                MainManager.Instance.CreateEntry3D();
+            }
+            Exit();
         }
     }
 
