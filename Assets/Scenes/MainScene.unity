@@ -1125,6 +1125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopUp_Delete
       objectReference: {fileID: 0}
+    - target: {fileID: 2173183903404305731, guid: 3e6f5ad2477624b769543a4a6e16e3be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3180592087500379245, guid: 3e6f5ad2477624b769543a4a6e16e3be, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
