@@ -17,6 +17,7 @@ public class AddEntry : MonoBehaviour
 
     public void Open_AddEntry()
     {
+        MainManager.Instance.DeleteEntry.Unselect();
         PopUp_AddEntry.SetActive(true);
     }
 

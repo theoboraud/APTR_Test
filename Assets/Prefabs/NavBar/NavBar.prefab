@@ -326,10 +326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5688041519409245069}
     m_Modifications:
-    - target: {fileID: 4727748866225113419, guid: 17d79703cb7be1349934fa08d3e1203b, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4727748866225113420, guid: 17d79703cb7be1349934fa08d3e1203b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -502,11 +498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7464208726864149326, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -718.2
+      value: -730
       objectReference: {fileID: 0}
     - target: {fileID: 7464208726864149326, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -456.86
+      value: -455
       objectReference: {fileID: 0}
     - target: {fileID: 7464208726864149326, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -519,6 +515,30 @@ PrefabInstance:
     - target: {fileID: 7464208726864149326, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464208726864149327, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21cc5357ccc9b3746a360f6b70b9a7bf, type: 3}

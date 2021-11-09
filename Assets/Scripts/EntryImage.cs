@@ -10,6 +10,9 @@ public class EntryImage : MonoBehaviour
     [Header("References")]
     public List<Sprite> Images = new List<Sprite>();
     public GameObject GO_Image;
+    public Text Text_Title;
+    public Text Text_Type;
+    public GameObject GO_ButtonDelete;
 
     [Header("Variables")]
     private Image image;
@@ -23,18 +26,36 @@ public class EntryImage : MonoBehaviour
     private void Awake()
     {
         GO_Image.GetComponent<Image>().sprite = RandomImage();
+        GO_ButtonDelete.SetActive(false);
     }
 
     // #endregion
 
 
 
-    // #region #region ==================== IMAGE METHODS ====================
+    // #region ==================== IMAGE METHODS ====================
 
     private Sprite RandomImage()
     {
         int _randIndex = Random.Range(0, Images.Count);
         return Images[_randIndex];
+    }
+
+    // #endregion
+
+
+
+    // #region ==================== DELETE METHODS ====================
+
+    public void DeleteButton(bool _bool)
+    {
+        GO_ButtonDelete.SetActive(_bool);
+    }
+
+
+    public void Delete()
+    {
+        MainManager.Instance.Enable_PopUpDelete(this.gameObject);
     }
 
     // #endregion

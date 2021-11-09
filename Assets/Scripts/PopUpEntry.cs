@@ -22,6 +22,8 @@ public class PopUpEntry : MonoBehaviour
 
     public void Exit()
     {
+        InputText.text = "";
+        fileName = "";
         this.gameObject.SetActive(false);
     }
 
@@ -36,13 +38,14 @@ public class PopUpEntry : MonoBehaviour
             // If it is an image, then create an EntryImage object
             if (isEntryImage)
             {
-                MainManager.Instance.CreateEntryImage();
+                MainManager.Instance.CreateEntryImage(fileName);
             }
             // Otherwise, create an Entry3D object
             else
             {
-                MainManager.Instance.CreateEntry3D();
+                MainManager.Instance.CreateEntry3D(fileName);
             }
+
             Exit();
         }
     }

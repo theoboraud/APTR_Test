@@ -13,6 +13,8 @@ public class MainManager : MonoBehaviour
     public GameObject GalleryImageHolder;                                   // Parent game object of all spawned gallery image entries
     public GameObject Gallery3DHolder;                                      // Parent game object of all spawned gallery 3D entries
     public List<GameObject> GalleryPositions = new List<GameObject>();      // Reference to all possible gallery positions
+    public DeleteEntry DeleteEntry;                                         // Reference to the DeleteEntry script
+    public PopUpDelete PopUpDelete;                                         // Reference to the PopUpDelete script
 
     [Header("Variables")]
     private List<GameObject> AllEntries = new List<GameObject>();           // Contains all entries, images and 3D
@@ -58,13 +60,15 @@ public class MainManager : MonoBehaviour
 
     // #region ==================== GALLERY METHODS ====================
 
-    public void CreateEntryImage()
+    public void CreateEntryImage(string _fileName)
     {
         // Don't create a new entry if reached max number of entries
         if (AllEntries.Count < maxEntries)
         {
-            // Instantiate and move to gallery holder images
+            // Instantiate, init and move to gallery holder images
             GameObject _newEntry = Instantiate(Prefab_EntryImage, new Vector3(0, 0, 0), Quaternion.identity);
+            _newEntry.GetComponent<EntryImage>().Text_Title.text = _fileName;
+            _newEntry.GetComponent<EntryImage>().Text_Type.text = "Type d'image";
             _newEntry.transform.parent = GalleryImageHolder.transform;
 
             // Add the reference to the lists
@@ -76,13 +80,16 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    public void CreateEntry3D()
+
+    public void CreateEntry3D(string _fileName)
     {
         // Don't create a new entry if reached max number of entries
         if (AllEntries.Count < maxEntries)
         {
-            // Instantiate and move to a gallery holder 3D
+            // Instantiate, init and move to a gallery holder 3D
             GameObject _newEntry = Instantiate(Prefab_Entry3D, new Vector3(0, 0, 0), Quaternion.identity);
+            _newEntry.GetComponent<EntryImage>().Text_Title.text = _fileName;
+            _newEntry.GetComponent<EntryImage>().Text_Type.text = "Type de modèle";
             _newEntry.transform.parent = Gallery3DHolder.transform;
 
             // Add the reference to the lists
@@ -94,7 +101,26 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    public void SortEntries(Sorting _sortValue)
+
+    public void SortAll()
+    {
+        SortEntries(Sorting.All);
+    }
+
+
+    public void SortImages()
+    {
+        SortEntries(Sorting.Images);
+    }
+
+
+    public void Sort3D()
+    {
+        SortEntries(Sorting.Models);
+    }
+
+
+    private void SortEntries(Sorting _sortValue)
     {
         sortValue = _sortValue;
         switch (sortValue)
@@ -115,6 +141,7 @@ public class MainManager : MonoBehaviour
         }
     }
 
+
     private void Sort(List<GameObject> _sortList)
     {
         for (int i = 0; i < _sortList.Count; i++)
@@ -123,6 +150,7 @@ public class MainManager : MonoBehaviour
             _sortList[i].transform.position = GalleryPositions[i].transform.position;
         }
     }
+
 
     private void Disable(List<GameObject> _disableList)
     {
@@ -133,4 +161,46 @@ public class MainManager : MonoBehaviour
     }
 
     // #endregion
+
+
+    public void EnterDeleteMode()
+    {
+        for (int i = 0; i < AllEntries.Count; i++)
+        {
+            AllEntries[i].GetComponent<EntryImage>().DeleteButton(true);
+        }
+    }
+
+
+    public void Enable_PopUpDelete(GameObject _GO)
+    {
+        PopUpDelete.gameObject.SetActive(true);
+        PopUpDelete.EntryToDelete = _GO;
+    }
+
+
+    public void Delete(GameObject _GO)
+    {
+        AllEntries.Remove(_GO);
+        EntriesImage.Remove(_GO);
+        Entries3D.Remove(_GO);
+        Destroy(_GO);
+        SortEntries(sortValue);
+        DeleteEntry.Unselect();
+    }
+
+
+    public void QuitDeleteMode()
+    {
+        for (int i = 0; i < AllEntries.Count; i++)
+        {
+            AllEntries[i].GetComponent<EntryImage>().DeleteButton(false);
+        }
+    }
+
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
